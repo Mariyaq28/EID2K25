@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eid Greeting Card</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="card">
+        <div class="sun" onclick="toggleMusicAndMoon()">🌞</div>
+        <div class="moon" id="moon" onclick="stopMusic()">🌙</div>
+        <h1 id="eidTitle"><span style="color: blue; font-weight: bold;">Eid</span> Mubarak!</h1>
+        <p id="greeting">May this Eid bring peace and blessings to you and your family!</p>
+        <p id="darkMessage" class="hidden">Ab yahan tk agaye ho tw.....</p>
+        <button id="eidiBtn" class="eidi-btn" onclick="trickEidi()">Eidi Chahiye?</button>
+        <audio id="eidMusic" loop>
+            <source src="eid-music.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
