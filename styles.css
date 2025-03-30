@@ -53,9 +53,10 @@ h1 {
 }
 
 p {
-    color: #555;
+    color: #001F3F;
     font-size: 1rem;
     margin-bottom: 15px;
+    font-style:italic;
 }
 
 .hidden {
