@@ -56,15 +56,10 @@ p {
     color: #800080;
     font-size: 1rem;
     margin-bottom: 15px;
-    font-style:italic;
-}
-
-.eid-symbols {
-    font-size: 1.5rem;
-    text-align: center;
-    margin-top: 10px;
     font-style:bold;
 }
+
+
 
 
 .hidden {
