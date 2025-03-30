@@ -59,6 +59,13 @@ p {
     font-style:italic;
 }
 
+.eid-symbols {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 10px;
+}
+
+
 .hidden {
     display: none;
     color: #28a745;
