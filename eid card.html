@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eid Greeting Card</title>
+    <style>
+        /* General Styling */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: radial-gradient(circle, rgb(255, 236, 210), rgb(252, 182, 159));
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            overflow: hidden;
+            transition: background 1s ease-in-out;
+        }
+
+        /* Card Styling */
+        .card {
+            background: white;
+            padding: 40px 30px; /* Adjusted padding */
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 90%;
+            max-width: 400px; /* Ensures responsiveness */
+            position: relative;
+            transition: transform 0.4s ease-in-out;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        /* Sun and Moon */
+        .sun, .moon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.5rem;
+            cursor: pointer;
+            margin: 0 auto 10px;
+            transition: all 0.3s ease;
+        }
+
+        .moon {
+            display: none;
+        }
+
+        /* Text Styling */
+        h1 {
+            color: #333;
+            font-size: 1.6rem;
+        }
+
+        p {
+            color: #555;
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .hidden {
+            display: none;
+            color: #28a745;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 12px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Eidi Button */
+        .eidi-btn {
+            display: none;
+            margin-top: 20px;
+            padding: 12px 20px;
+            font-size: 1rem;
+            border: none;
+            background: #ffcc00;
+            cursor: pointer;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: transform 0.3s ease-in-out, background 0.3s ease;
+            position: relative;
+        }
+
+        .eidi-btn:hover {
+            background: #ffb300;
+        }
+
+        /* Fade-in Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Media Queries for Better Responsiveness */
+        @media (max-width: 600px) {
+            .card {
+                padding: 30px 20px;
+                width: 95%;
+            }
+
+            h1 {
+                font-size: 1.4rem;
+            }
+
+            p {
+                font-size: 0.9rem;
+            }
+
+            .sun, .moon {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+            }
+
+            .eidi-btn {
+                font-size: 0.9rem;
+                padding: 10px 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="sun" onclick="toggleMusicAndMoon()">🌞</div>
+        <div class="moon" id="moon" onclick="stopMusic()">🌙</div>
+        <h1 id="eidTitle"><span style="color: blue; font-weight: bold;">Eid</span> Mubarak!</h1>
+        <p id="greeting">May this Eid bring peace and blessings to you and your family!</p>
+        <p id="darkMessage" class="hidden">Ab yahan tk agaye ho tw.....</p>
+        <button id="eidiBtn" class="eidi-btn" onclick="trickEidi()">Eidi Chahiye?</button>
+        <audio id="eidMusic" loop>
+            <source src="eid-music.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+    <script>
+        let clickCount = 0;
+
+        function toggleMusicAndMoon() {
+            let sun = document.querySelector('.sun');
+            let moon = document.getElementById('moon');
+            let body = document.body;
+            let music = document.getElementById('eidMusic');
+            let greeting = document.getElementById('greeting');
+            let darkMessage = document.getElementById('darkMessage');
+            let eidiBtn = document.getElementById('eidiBtn');
+            
+            if (moon.style.display === 'none' || moon.style.display === '') {
+                moon.style.display = 'flex';
+                sun.style.display = 'none';
+                body.style.background = 'radial-gradient(circle, #2c3e50, #000000)';
+                music.play();
+                greeting.style.display = 'none';
+                darkMessage.style.display = 'block';
+                eidiBtn.style.display = 'inline-block';
+            } else {
+                moon.style.display = 'none';
+                sun.style.display = 'flex';
+                body.style.background = 'radial-gradient(circle, rgb(255, 236, 210), rgb(252, 182, 159))';
+                music.pause();
+                greeting.style.display = 'block';
+                darkMessage.style.display = 'none';
+                eidiBtn.style.display = 'none';
+                clickCount = 0;
+            }
+        }
+        
+        function stopMusic() {
+            toggleMusicAndMoon();
+        }
+
+        function trickEidi() {
+            let eidiBtn = document.getElementById('eidiBtn');
+            clickCount++;
+            if (clickCount < 3) {
+                let xOffset = Math.random() * 40 - 20;
+                let yOffset = Math.random() * 20 - 10;
+                eidiBtn.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+            } else {
+                eidiBtn.innerText = "Pehle khud tw Eidi do! 😜";
+                eidiBtn.style.color = "red"; 
+                eidiBtn.style.transform = "none";
+                eidiBtn.disabled = true;
+            }
+        }
+    </script>
+</body>
+</html>
+
