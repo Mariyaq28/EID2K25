@@ -37,8 +37,8 @@ function trickEidi() {
     let eidiBtn = document.getElementById('eidiBtn');
     clickCount++;
     if (clickCount < 3) {
-        let xOffset = Math.random() * 40 - 20;
-        let yOffset = Math.random() * 20 - 10;
+        let xOffset = Math.random() * 80 - 40; // Increase horizontal movement
+        let yOffset = Math.random() * 40 - 20; // Increase vertical movement
         eidiBtn.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
     } else {
         eidiBtn.innerText = "Pehle khud tw Eidi do! 😜";
@@ -47,3 +47,4 @@ function trickEidi() {
         eidiBtn.disabled = true;
     }
 }
+
