@@ -41,6 +41,12 @@ body {
     margin: 0 auto 10px;
     transition: all 0.3s ease;
 }
+.tap-text {
+    font-size: 0.8rem;
+color: grey;
+    text-align: center;
+    margin-top: 5px;
+}
 
 .moon {
     display: none;
